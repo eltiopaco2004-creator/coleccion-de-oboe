@@ -1,0 +1,342 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<meta name="color-scheme" content="light dark" />
+<link rel="icon" href="data:," />
+<title>Colección de recursos audiovisuales de oboe</title>
+<style>
+  :root{
+    --bg:#f7f5f0;
+    --surface:#ffffff;
+    --ink:#1c1a17;
+    --muted:#6b6560;
+    --line:#e3ddd3;
+    --accent:#7a3b1e;
+    --accent-ink:#7a3b1e;
+    --badge-bg:#f1e9df;
+    --shadow:0 1px 2px rgba(28,26,23,.05), 0 8px 24px rgba(28,26,23,.06);
+  }
+  @media (prefers-color-scheme: dark){
+    :root{
+      --bg:#161412;
+      --surface:#1f1d1a;
+      --ink:#ece8e1;
+      --muted:#a8a099;
+      --line:#33302b;
+      --accent:#d99a6c;
+      --accent-ink:#e8b48a;
+      --badge-bg:#2c2721;
+      --shadow:0 1px 2px rgba(0,0,0,.3), 0 8px 24px rgba(0,0,0,.25);
+    }
+  }
+  *{box-sizing:border-box}
+  html{-webkit-text-size-adjust:100%}
+  body{
+    margin:0;
+    background:var(--bg);
+    color:var(--ink);
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    line-height:1.55;
+  }
+  a{color:var(--accent-ink)}
+  .wrap{
+    max-width:780px;
+    margin:0 auto;
+    padding:28px 18px 56px;
+  }
+  @media (min-width:720px){
+    .wrap{padding:44px 24px 72px}
+  }
+  header{
+    padding-bottom:22px;
+    border-bottom:2px solid var(--ink);
+    margin-bottom:8px;
+  }
+  .kicker{
+    font-size:.78rem;
+    letter-spacing:.14em;
+    text-transform:uppercase;
+    font-weight:700;
+    color:var(--accent);
+    margin:0 0 10px;
+  }
+  h1{
+    font-family: Georgia, "Times New Roman", Times, serif;
+    font-weight:600;
+    font-size:2rem;
+    line-height:1.12;
+    letter-spacing:-.01em;
+    margin:0;
+    text-wrap:balance;
+  }
+  @media (min-width:720px){ h1{font-size:2.6rem} }
+  .subtitle{
+    margin:12px 0 0;
+    font-size:1.02rem;
+    color:var(--muted);
+    max-width:56ch;
+  }
+  .count{
+    margin:14px 0 0;
+    font-size:.9rem;
+    color:var(--muted);
+  }
+  .count strong{color:var(--ink); font-weight:700}
+
+  .list{
+    list-style:none;
+    margin:0;
+    padding:0;
+    display:flex;
+    flex-direction:column;
+    gap:22px;
+    margin-top:22px;
+  }
+  .item{
+    background:var(--surface);
+    border:1px solid var(--line);
+    border-radius:14px;
+    overflow:hidden;
+    box-shadow:var(--shadow);
+  }
+  .item-head{
+    padding:18px 18px 14px;
+  }
+  @media (min-width:720px){ .item-head{padding:22px 22px 16px} }
+  .meta-row{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    flex-wrap:wrap;
+    margin-bottom:10px;
+  }
+  .num{
+    font-family: Georgia, serif;
+    font-size:.85rem;
+    font-weight:700;
+    color:var(--muted);
+    min-width:1.6em;
+  }
+  .badge{
+    display:inline-flex;
+    align-items:center;
+    min-height:26px;
+    padding:3px 10px;
+    border-radius:999px;
+    background:var(--badge-bg);
+    color:var(--accent-ink);
+    font-size:.78rem;
+    font-weight:700;
+    letter-spacing:.01em;
+  }
+  .item h2{
+    font-family: Georgia, "Times New Roman", serif;
+    font-size:1.22rem;
+    line-height:1.3;
+    font-weight:600;
+    margin:0;
+    text-wrap:pretty;
+  }
+  @media (min-width:720px){ .item h2{font-size:1.35rem} }
+  .channel{
+    margin:8px 0 0;
+    color:var(--muted);
+    font-size:.96rem;
+    display:flex;
+    align-items:center;
+    gap:7px;
+    flex-wrap:wrap;
+  }
+  .channel svg{flex:0 0 auto; opacity:.75}
+  .channel strong{color:var(--ink); font-weight:600}
+
+  .player{
+    position:relative;
+    width:100%;
+    aspect-ratio:16/9;
+    background:#000;
+  }
+  .player iframe{
+    position:absolute;
+    inset:0;
+    width:100%;
+    height:100%;
+    border:0;
+    display:block;
+  }
+  .player-spotify{
+    background:var(--surface);
+  }
+  .player-spotify iframe{
+    width:100%;
+    height:352px;
+    border:0;
+    display:block;
+  }
+  .item-foot{
+    padding:14px 18px 18px;
+    display:flex;
+    justify-content:flex-end;
+  }
+  @media (min-width:720px){ .item-foot{padding:14px 22px 20px} }
+  .yt-link{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    min-height:44px;
+    padding:10px 16px;
+    border:1.5px solid var(--ink);
+    border-radius:999px;
+    color:var(--ink);
+    text-decoration:none;
+    font-weight:700;
+    font-size:.94rem;
+    line-height:1;
+  }
+  .yt-link:hover, .yt-link:focus-visible{
+    background:var(--ink);
+    color:var(--bg);
+  }
+  .yt-link:focus-visible{outline:3px solid var(--accent); outline-offset:2px}
+  .yt-link svg{flex:0 0 auto}
+
+  footer{
+    margin-top:36px;
+    padding-top:18px;
+    border-top:1px solid var(--line);
+    color:var(--muted);
+    font-size:.9rem;
+    text-align:center;
+  }
+  footer p{margin:0}
+  @media (prefers-reduced-motion: reduce){
+    *{transition:none !important}
+  }
+  .yt-link{transition:background .15s ease, color .15s ease}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <h1>Colección de recursos audiovisuales de oboe</h1>
+    <p class="subtitle">Vídeos, canales y listas de YouTube y música de Spotify seleccionados para escuchar, mirar y aprender.</p>
+    <p class="count"><strong>5</strong> piezas en la colección</p>
+  </header>
+
+  <ol class="list">
+
+    <!-- 1 -->
+    <li class="item">
+      <div class="item-head">
+        <div class="meta-row"><span class="num">01</span><span class="badge">Álbum · Spotify</span></div>
+        <h2>con slancio</h2>
+        <p class="channel">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M9 18V6l10-2v11" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><circle cx="6.5" cy="18" r="2.5" stroke="currentColor" stroke-width="1.8"/><circle cx="16.5" cy="15" r="2.5" stroke="currentColor" stroke-width="1.8"/></svg>
+          <span>Álbum en <strong>Spotify</strong></span>
+        </p>
+      </div>
+      <div class="player-spotify">
+        <iframe src="https://open.spotify.com/embed/album/1JS0lvprIo2KQpn5fMJ0Va" title="con slancio — álbum de Spotify" loading="lazy" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
+      </div>
+      <div class="item-foot">
+        <a class="yt-link" href="https://open.spotify.com/album/1JS0lvprIo2KQpn5fMJ0Va" target="_blank" rel="noopener noreferrer">
+          Abrir en Spotify
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M7 17L17 7M9 7h8v8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+      </div>
+    </li>
+
+    <!-- 2 -->
+    <li class="item">
+      <div class="item-head">
+        <div class="meta-row"><span class="num">02</span><span class="badge">Vídeo</span></div>
+        <h2>Oboe Trio on 3 different oboes! Aaron Hill, Ann Lemke, &amp; Merideth Hite Estevez #oboe #chambermusic</h2>
+        <p class="channel">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="8" r="4" stroke="currentColor" stroke-width="1.8"/><path d="M4 20c1.2-3.2 4.2-5 8-5s6.8 1.8 8 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+          <span>Canal: <strong>Ann Lemke Oboe Studio</strong></span>
+        </p>
+      </div>
+      <div class="player">
+        <iframe src="https://www.youtube.com/embed/UeBu86zLF2k" title="Oboe Trio on 3 different oboes! Aaron Hill, Ann Lemke, &amp; Merideth Hite Estevez" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe>
+      </div>
+      <div class="item-foot">
+        <a class="yt-link" href="https://www.youtube.com/watch?v=UeBu86zLF2k" target="_blank" rel="noopener noreferrer">
+          Abrir en YouTube
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M7 17L17 7M9 7h8v8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+      </div>
+    </li>
+
+    <!-- 3 -->
+    <li class="item">
+      <div class="item-head">
+        <div class="meta-row"><span class="num">03</span><span class="badge">Canal</span></div>
+        <h2>Thomas Indermühle | Official |</h2>
+        <p class="channel">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="8" r="4" stroke="currentColor" stroke-width="1.8"/><path d="M4 20c1.2-3.2 4.2-5 8-5s6.8 1.8 8 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+          <span>Canal: <strong>Thomas Indermühle | Official |</strong></span>
+        </p>
+      </div>
+      <div class="player">
+        <iframe src="https://www.youtube.com/embed/videoseries?list=UUVic15EK7fO23J_eHiTtN1Q" title="Thomas Indermühle | Official | — canal de YouTube" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe>
+      </div>
+      <div class="item-foot">
+        <a class="yt-link" href="https://www.youtube.com/channel/UCVic15EK7fO23J_eHiTtN1Q" target="_blank" rel="noopener noreferrer">
+          Abrir en YouTube
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M7 17L17 7M9 7h8v8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+      </div>
+    </li>
+
+    <!-- 4 -->
+    <li class="item">
+      <div class="item-head">
+        <div class="meta-row"><span class="num">04</span><span class="badge">Lista de reproducción</span></div>
+        <h2>Cápsulas</h2>
+        <p class="channel">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="8" r="4" stroke="currentColor" stroke-width="1.8"/><path d="M4 20c1.2-3.2 4.2-5 8-5s6.8 1.8 8 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+          <span>Canal: <strong>Thomas Indermühle | Official |</strong></span>
+        </p>
+      </div>
+      <div class="player">
+        <iframe src="https://www.youtube.com/embed/videoseries?list=PL-bn8O1sd5Q8ai6OT4qnQ6aqP7ygDHzQI" title="Cápsulas — Thomas Indermühle | Official |" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe>
+      </div>
+      <div class="item-foot">
+        <a class="yt-link" href="https://www.youtube.com/playlist?list=PL-bn8O1sd5Q8ai6OT4qnQ6aqP7ygDHzQI" target="_blank" rel="noopener noreferrer">
+          Abrir en YouTube
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M7 17L17 7M9 7h8v8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+      </div>
+    </li>
+
+    <!-- 5 -->
+    <li class="item">
+      <div class="item-head">
+        <div class="meta-row"><span class="num">05</span><span class="badge">Canal</span></div>
+        <h2>EG-REEDS | Expertos en cañas de oboe</h2>
+        <p class="channel">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="8" r="4" stroke="currentColor" stroke-width="1.8"/><path d="M4 20c1.2-3.2 4.2-5 8-5s6.8 1.8 8 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+          <span>Canal: <strong>EG-REEDS | Expertos en cañas de oboe</strong></span>
+        </p>
+      </div>
+      <div class="player">
+        <iframe src="https://www.youtube.com/embed/videoseries?list=UUn9OSmO6boMxg0UOACGnT5Q" title="EG-REEDS | Expertos en cañas de oboe — canal de YouTube" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe>
+      </div>
+      <div class="item-foot">
+        <a class="yt-link" href="https://www.youtube.com/channel/UCn9OSmO6boMxg0UOACGnT5Q" target="_blank" rel="noopener noreferrer">
+          Abrir en YouTube
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M7 17L17 7M9 7h8v8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+      </div>
+    </li>
+
+  </ol>
+
+  <footer>
+    <p>Colección de recursos audiovisuales de oboe</p>
+  </footer>
+</div>
+</body>
+</html>
